@@ -3,30 +3,35 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "Enhanced angular router functionality",
+  "main": "./dist",
+  "module": "./src",
+  "types": "./dist",
   "scripts": {
-    "build": "tsc",
+		"build": "rimraf dist && tsc -p tsconfig-dist.json",
 		"lint": "tslint ./src/**/*.ts -t verbose",
 		"precommit": "npm run build && npm run lint && npm run test:once",
     "test": "npm run build && jasmine",
 		"test:once": "jasmine"
   },
-	"main": "./dist",
-	"types": "./src",
   "author": "Charles Louw <charles.louw@gmail.com>",
 	"repository": {
 		"type" : "git",
 		"url" : "https://github.com/cubitworx/angular-router-enhanced.git"
 	},
   "dependencies": {
-    "@angular/core": "^4.0.0",
+    "@angular/common": "^4.0.2",
+    "@angular/core": "^4.0.2",
+    "@angular/platform-browser": "^4.0.2",
+    "@angular/router": "^4.0.2",
     "rxjs": "^5.2.0",
     "zone.js": "^0.8.5"
   },
   "devDependencies": {
-    "@types/jasmine": "2.5.36",
+    "@types/jasmine": "2.5.47",
     "jasmine": "^2.5.3",
     "jasmine-core": "^2.5.2",
-    "tslint": "^4.5.1",
-    "typescript": "~2.2.1"
+    "rimraf": "^2.5.4",
+    "tslint": "^5.0.0",
+    "typescript": "^2.2.1"
   }
 }
